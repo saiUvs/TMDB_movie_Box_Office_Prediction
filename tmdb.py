@@ -2,8 +2,22 @@
 import streamlit as st
 import streamlit.components.v1 as components
 from PIL import Image
+import pandas as pd
+import numpy as np
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.metrics import mean_squared_error
+import joblib
 
 def main():
+    try:
+        model = joblib.load('model.joblib')
+    except FileNotFoundError:
+        print("Model file not found. Please check the file path.")
+    except Exception as e:
+        print(f"Error loading model: {e}")
+    else:
+        print("Model loaded successfully.")
+        
     st.set_page_config(page_title='Movie App', page_icon='🎬')
     with open( "style.css" ) as css:
         st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
@@ -28,7 +42,7 @@ def main():
     elif selection == "3-Phase 🏗️  🎓  🧪 ":
         phase3()
     elif selection == "4-Phase 🚀 ":
-        phase4()
+        phase4(model)
 
 def home_page():
     with open( "style.css" ) as css:
@@ -166,23 +180,17 @@ def phase3():
     st.markdown("Visit [Phase3.ipynb](https://github.com/Springboard-Internship-2024/TMDB-Box-Office-Prediction_May_2024/blob/U-V-Sai-Praneeth/infosys_W5_Milestone3.ipynb) for more information.")
     
 
-def phase4():
+def phase4(model):
     import streamlit as st
     import pandas as pd
     import numpy as np
     from sklearn.ensemble import GradientBoostingRegressor
     from sklearn.metrics import mean_squared_error
     import joblib
+    
     st.title("Welcome to Phase 4 🚀 ")
 
-    try:
-        model = joblib.load('model.joblib')
-    except FileNotFoundError:
-        print("Model file not found. Please check the file path.")
-    except Exception as e:
-        print(f"Error loading model: {e}")
-    else:
-        print("Model loaded successfully.")
+
 
     with open( "style.css" ) as css:
         st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
