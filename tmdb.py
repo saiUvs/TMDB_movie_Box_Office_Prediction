@@ -2,10 +2,6 @@
 import streamlit as st
 import streamlit.components.v1 as components
 from PIL import Image
-import pandas as pd
-import numpy as np
-from sklearn.ensemble import GradientBoostingRegressor
-from sklearn.metrics import mean_squared_error
 import joblib
 
 def main():
@@ -181,8 +177,6 @@ def phase4(model):
     import joblib
     
     st.title("Welcome to Phase 4 🚀 ")
-
-
 
     with open( "style.css" ) as css:
         st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
