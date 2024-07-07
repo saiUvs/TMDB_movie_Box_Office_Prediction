@@ -9,15 +9,7 @@ from sklearn.metrics import mean_squared_error
 import joblib
 
 def main():
-    try:
-        model = joblib.load('model.joblib')
-    except FileNotFoundError:
-        print("Model file not found. Please check the file path.")
-    except Exception as e:
-        print(f"Error loading model: {e}")
-    else:
-        print("Model loaded successfully.")
-        
+    model = joblib.load('model.joblib')
     st.set_page_config(page_title='Movie App', page_icon='🎬')
     with open( "style.css" ) as css:
         st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
