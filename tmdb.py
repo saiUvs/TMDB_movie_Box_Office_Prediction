@@ -5,17 +5,17 @@ from PIL import Image
 
 def main():
     st.set_page_config(page_title='Movie App', page_icon='🎬')
-    with open( "/work/style.css" ) as css:
+    with open( "style.css" ) as css:
         st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
     st.sidebar.title("Navigation")
     pages = ["Home", "About", "1-Phase 📥", "2-Phase 🧹 🔍", "3-Phase 🏗️  🎓  🧪 ",
     "4-Phase 🚀 "]
     selection = st.sidebar.radio("Go to", pages)
-    with open("/work/files/create_dataset.html", "r", encoding="utf-8") as f:
+    with open("files/create_dataset.html", "r", encoding="utf-8") as f:
        Data_html = f.read()
-    with open("/work/files/cleaning.html", "r", encoding="utf-8") as f:
+    with open("files/cleaning.html", "r", encoding="utf-8") as f:
        clean_html = f.read()
-    with open("/work/files/create_dataset.html", "r", encoding="utf-8") as f:
+    with open("files/create_dataset.html", "r", encoding="utf-8") as f:
        Data_html = f.read()
     if selection == "Home":
         home_page()
@@ -31,7 +31,7 @@ def main():
         phase4()
 
 def home_page():
-    with open( "/work/style.css" ) as css:
+    with open( "style.css" ) as css:
         st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
     st.title("🎥 Box Office Prediction Project 🍿")
     st.markdown("""
@@ -56,7 +56,7 @@ def home_page():
     """)
 
 def About():
-    with open( "/work/style.css" ) as css:
+    with open( "style.css" ) as css:
         st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
     st.subheader("📖 About This Project")
 
@@ -78,7 +78,7 @@ def About():
     """)
 
 def phase1(Data_html):
-    with open( "/work/style.css" ) as css:
+    with open( "style.css" ) as css:
         st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
     st.title("Welcome to Phase 1 ")
     st.header("Data Collection")
@@ -94,7 +94,7 @@ def phase1(Data_html):
 
 def phase2(clean_html):
 
-    with open( "/work/style.css" ) as css:
+    with open( "style.css" ) as css:
         st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
     st.title("🚀 Welcome to Phase 2: The Adventure Continues! 🎉")
@@ -120,10 +120,10 @@ def phase2(clean_html):
     """)
     st.subheader("Plots --> EDA")
 
-    bar_chart_img = Image.open('/work/images/newplot (2).png')
-    histogram_img = Image.open('/work/images/newplot (1).png')
-    scatterplot_img = Image.open('/work/images/newplot.png')
-    correlation_matrix_img = Image.open('/work/images/newplot (3).png')
+    bar_chart_img = Image.open('images/newplot (2).png')
+    histogram_img = Image.open('images/newplot (1).png')
+    scatterplot_img = Image.open('images/newplot.png')
+    correlation_matrix_img = Image.open('images/newplot (3).png')
 
     # Display each plot using st.image
     st.subheader("Plots --> EDA")
@@ -145,7 +145,7 @@ def phase2(clean_html):
     components.html(clean_html, height=1000, scrolling=True)
 
 def phase3():
-    with open( "/work/style.css" ) as css:
+    with open( "style.css" ) as css:
         st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
     st.title("🏁 Welcome to Phase 3: The Final Countdown! 🚀")
     st.header("🤖 Training and Testing the Model 📊")
@@ -184,7 +184,7 @@ def phase4():
     else:
         print("Model loaded successfully.")
 
-    with open( "/work/style.css" ) as css:
+    with open( "style.css" ) as css:
         st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
     st.header("🎥 TMDB Revenue Prediction")
