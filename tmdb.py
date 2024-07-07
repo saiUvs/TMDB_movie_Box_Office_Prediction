@@ -3,7 +3,8 @@ import streamlit as st
 import streamlit.components.v1 as components
 from PIL import Image
 import joblib
-
+import sklearn
+from sklearn import *
 def main():
     model = joblib.load('model.joblib')
     st.set_page_config(page_title='Movie App', page_icon='🎬')
