@@ -161,7 +161,7 @@ def Predictions(model):
     from sklearn.metrics import mean_squared_error
     import joblib
     
-    st.title("Welcome to Phase 4 🚀 ")
+    st.title("Predict the revenue of the movie. ")
 
     with open( "style.css" ) as css:
         st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
