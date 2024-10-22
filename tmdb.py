@@ -11,8 +11,7 @@ def main():
     with open( "style.css" ) as css:
         st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
     st.sidebar.title("Navigation")
-    pages = ["Home", "About", "1-Phase 📥", "2-Phase 🧹 🔍", "3-Phase 🏗️  🎓  🧪 ",
-    "4-Phase 🚀 "]
+    pages = ["Home", "Predictions" ]
     selection = st.sidebar.radio("Go to", pages)
     with open("files/create_dataset.html", "r", encoding="utf-8") as f:
        Data_html = f.read()
@@ -22,16 +21,8 @@ def main():
        Data_html = f.read()
     if selection == "Home":
         home_page()
-    elif selection == "About":
-        About()
-    elif selection == "1-Phase 📥":
-        phase1(Data_html)
-    elif selection == "2-Phase 🧹 🔍":
-        phase2(clean_html)
-    elif selection == "3-Phase 🏗️  🎓  🧪 ":
-        phase3()
-    elif selection == "4-Phase 🚀 ":
-        phase4(model)
+    else : 
+        Predictions(model)
 
 def home_page():
     with open( "style.css" ) as css:
@@ -39,13 +30,6 @@ def home_page():
     st.title("🎥 Box Office Prediction Project 🍿")
     st.markdown("""
     Welcome to the **TMDB Movie Data Analysis Project**! This interactive app allows you to explore and analyze the fascinating world of movies using data from [The Movie Database (TMDB)](https://www.themoviedb.org/). Let's dive into the world of movies, data, and insights! 🌟
-
-    ## 🚀 Features
-    - **Interactive Visualizations**: Dive deep into the data with interactive charts and graphs.
-    - **Customizable Filters**: Filter movies by genre, release year, language, and more.
-    - **Detailed Insights**: Gain detailed insights into individual movies, including cast, crew, and production companies.
-
-    ## 🛠️ How to Use
     - **Navigation**: Use the sidebar to navigate through different sections of the app.
 
     ## 🌟 Highlights
@@ -169,7 +153,7 @@ def phase3():
     st.markdown("Visit [Phase3.ipynb](https://github.com/Springboard-Internship-2024/TMDB-Box-Office-Prediction_May_2024/blob/U-V-Sai-Praneeth/infosys_W5_Milestone3.ipynb) for more information.")
     
 
-def phase4(model):
+def Predictions(model):
     import streamlit as st
     import pandas as pd
     import numpy as np
