@@ -1,10 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap');body * {
+body, div[data-testid="stAppViewContainer"] {
     font-family: "Sono", monospace;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-    font-variation-settings:
-    "MONO" 1;
+    font-variation-settings: "MONO" 1;
+    background-image: url("https://your-image-url-here.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
+/* Create the overlay */
+div[data-testid="stAppViewContainer"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust transparency */
+    z-index: -1; /* Put the overlay behind content */
 }
